@@ -1,5 +1,7 @@
 <script setup>
 import { ref } from "vue";
+import flagindo from "../assets/indonesia.svg";
+import flagusa from "../assets/usa.svg";
 
 const audioPlayer = ref(null);
 const audioPlayer1 = ref(null);
@@ -14,10 +16,10 @@ function playAudio(country) {
         "https://download.samplelib.com/mp3/sample-3s.mp3";
       break;
     case "indo":
-      currentAudioSrc.value = "/tourplan/public/Audio/IDN/J1_Lobby_Depan.mp3";
+      currentAudioSrc.value = "/Audio/IDN/J1_Lobby_Depan.mp3";
       break;
     case "usa":
-      currentAudioSrc.value = "/tourplan/public/Audio/ENG/J1_Front_Lobby.mp3";
+      currentAudioSrc.value = "/Audio/ENG/J1_Front_Lobby.mp3";
       break;
   }
 
@@ -84,12 +86,12 @@ function playAudioj2(country) {
             <ul class="bg-base-100 rounded-t-none p-2">
               <li>
                 <a
-                  ><img src="/public/indonesia.svg" alt="Indonesia" />
+                  ><img :src="flagindo" alt="Indonesia" />
                   Indonesia</a
                 >
               </li>
               <li>
-                <a><img src="/public/usa.svg" alt="Usa" />English</a>
+                <a><img :src="flagusa" alt="Usa" />English</a>
               </li>
               <li>
                 <a
@@ -150,7 +152,7 @@ function playAudioj2(country) {
 
   <div
     class="hero min-h-fit"
-    style="background-image: url('/tourplan/public/ooorganize.svg')"
+    style="background-image: url('/tourplan/src/assets/ooorganize.svg')"
   >
     <div class="hero-overlay"></div>
 
