@@ -22,7 +22,7 @@ export const songs = [
       artist: "Depan Parkir-Koperasi",
       audio: {
         ina: "/tourplan/Audio/IDN/J3_Depan_Parkir_Koperasi.mp3",
-        eng: "/tourplan/Audio/ENG/J1_Front_Lobby.mp3",
+        eng: "/tourplan/Audio/ENG/J3_Front_Parkir_Koperasi.mp3",
         chn: "https://download.samplelib.com/mp3/sample-3s.mp3",
       },
     },
@@ -31,7 +31,7 @@ export const songs = [
       artist: "Masuk Pabrik",
       audio: {
         ina: "/tourplan/Audio/IDN/A1_Masuk_Pabrik.mp3",
-        eng: "/tourplan/Audio/ENG/J1_Front_Lobby.mp3",
+        eng: "/tourplan/Audio/ENG/A1_Enter_the_Factory.mp3",
         chn: "https://download.samplelib.com/mp3/sample-3s.mp3",
       },
     },
@@ -57,7 +57,7 @@ export const songs = [
       title: "B1",
       artist: "Ex-100B",
       audio: {
-        ina: "/tourplan/Audio/IDN/A3_Multi_Drawing.mp3",
+        ina: "/tourplan/Audio/IDN/B1_Ex_100B.mp3",
         eng: "/tourplan/Audio/ENG/J1_Front_Lobby.mp3",
         chn: "https://download.samplelib.com/mp3/sample-3s.mp3",
       },
