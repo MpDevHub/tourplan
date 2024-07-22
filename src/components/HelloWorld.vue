@@ -58,7 +58,7 @@ function playAudioj3(country) {
         "https://download.samplelib.com/mp3/sample-3s.mp3";
       break;
     case "indo":
-      currentAudioSrc2.value = "https://github.com/MpDevHub/tourplan/raw/main/public/Audio/IDN/J2_Depan_PO-Supir.mp3";
+      currentAudioSrc2.value = "https://github.com/MpDevHub/tourplan/raw/main/public/Audio/IDN/J3_Depan_Parkir_Koperasi.mp3";
       break;
     case "usa":
       currentAudioSrc2.value = "https://github.com/MpDevHub/tourplan/raw/main/public/J3_Front_Parkir_Koperasi.mp3";
@@ -77,7 +77,7 @@ function playAudioj4(country) {
         "https://download.samplelib.com/mp3/sample-3s.mp3";
       break;
     case "indo":
-      currentAudioSrc3.value = "https://github.com/MpDevHub/tourplan/raw/main/public/Audio/IDN/J2_Depan_PO-Supir.mp3";
+      currentAudioSrc3.value = "https://github.com/MpDevHub/tourplan/raw/main/public/Audio/IDN/A1_Masuk_Pabrik.mp3";
       break;
     case "usa":
       currentAudioSrc3.value = "https://github.com/MpDevHub/tourplan/raw/main/public/A1_Enter_the_Factory.mp3";
