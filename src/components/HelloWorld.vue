@@ -14,10 +14,10 @@ function playAudio(country) {
         "https://download.samplelib.com/mp3/sample-3s.mp3";
       break;
     case "indo":
-      currentAudioSrc.value = "../Public/Audio/IDN/J1_Lobby_Depan.mp3";
+      currentAudioSrc.value = "/tourplan/public/Audio/IDN/J1_Lobby_Depan.mp3";
       break;
     case "usa":
-      currentAudioSrc.value = "../Public/Audio/ENG/J1_Front_Lobby.mp3";
+      currentAudioSrc.value = "/tourplan/public/Audio/ENG/J1_Front_Lobby.mp3";
       break;
   }
 
@@ -33,10 +33,10 @@ function playAudioj2(country) {
         "https://download.samplelib.com/mp3/sample-3s.mp3";
       break;
     case "indo":
-      currentAudioSrc1.value = "../Public/Audio/IDN/J2_Depan_PO-Supir.mp3";
+      currentAudioSrc1.value = "/tourplan/public/Audio/IDN/J2_Depan_PO-Supir.mp3";
       break;
     case "usa":
-      currentAudioSrc1.value = "../Public/Audio/ENG/J2_Front_of_Driver's_Post.mp3";
+      currentAudioSrc1.value = "/tourplan/public/Audio/ENG/J2_Front_of_Driver's_Post.mp3";
       break;
   }
 
@@ -84,12 +84,12 @@ function playAudioj2(country) {
             <ul class="bg-base-100 rounded-t-none p-2">
               <li>
                 <a
-                  ><img src="/indonesia.svg" alt="Indonesia" />
+                  ><img src="/public/indonesia.svg" alt="Indonesia" />
                   Indonesia</a
                 >
               </li>
               <li>
-                <a><img src="/usa.svg" alt="Usa" />English</a>
+                <a><img src="/public/usa.svg" alt="Usa" />English</a>
               </li>
               <li>
                 <a
@@ -150,7 +150,7 @@ function playAudioj2(country) {
 
   <div
     class="hero min-h-fit"
-    style="background-image: url('/ooorganize.svg')"
+    style="background-image: url('/tourplan/public/ooorganize.svg')"
   >
     <div class="hero-overlay"></div>
 
