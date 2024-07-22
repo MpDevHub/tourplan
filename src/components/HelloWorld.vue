@@ -451,7 +451,7 @@ function playAudioj4(country) {
             <div class="group relative">
               <img
                 class="w-full max-w-xs block rounded"
-                src="https://images.unsplash.com/photo-1586794878317-4cb8a793321b?q=80&w=1494&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="https://images.unsplash.com/photo-1619026457031-dafc4b5300a5?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt=""
               />
               <div
@@ -685,15 +685,13 @@ function playAudioj4(country) {
             </div>
           </div>
         </div>
-      </div>
-
-      <!-- 3 -->
-       <div class="carousel-item">
+        <!-- 3 -->
+        <div class="carousel-item">
           <div class="bg-base-100 shadow-lg rounded p-3">
             <div class="group relative">
               <img
                 class="w-full max-w-xs block rounded"
-                src="https://images.unsplash.com/photo-1586794878317-4cb8a793321b?q=80&w=1494&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="https://images.unsplash.com/photo-1572977562020-01f1acc3db84?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt=""
               />
               <div
@@ -911,8 +909,8 @@ function playAudioj4(country) {
               </div>
             </div>
             <div class="p-5">
-              <h3 class="text-lg">Depan Pos Sopir</h3>
-              <p class="text-gray-400">J2</p>
+              <h3 class="text-lg">Depan Parkir Koperasi</h3>
+              <p class="text-gray-400">J3</p>
             </div>
             <div class="pt-1 items-start">
               <audio
@@ -921,20 +919,19 @@ function playAudioj4(country) {
                 controls
                 controlsList="nodownload"
               >
-                <source :src="currentAudioSrc1" type="audio/mpeg" />
+                <source :src="currentAudioSrc2" type="audio/mpeg" />
                 Your browser does not support the audio element.
               </audio>
             </div>
           </div>
         </div>
-      </div>
-      <!-- 4 -->
-       <div class="carousel-item">
+        <!-- 4 -->
+        <div class="carousel-item">
           <div class="bg-base-100 shadow-lg rounded p-3">
             <div class="group relative">
               <img
                 class="w-full max-w-xs block rounded"
-                src="https://images.unsplash.com/photo-1586794878317-4cb8a793321b?q=80&w=1494&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="https://images.unsplash.com/photo-1597057435443-8a51eeb5538f?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt=""
               />
               <div
@@ -1152,8 +1149,8 @@ function playAudioj4(country) {
               </div>
             </div>
             <div class="p-5">
-              <h3 class="text-lg">Depan Pos Sopir</h3>
-              <p class="text-gray-400">J2</p>
+              <h3 class="text-lg">Masuk Pabrik</h3>
+              <p class="text-gray-400">A1</p>
             </div>
             <div class="pt-1 items-start">
               <audio
@@ -1162,14 +1159,14 @@ function playAudioj4(country) {
                 controls
                 controlsList="nodownload"
               >
-                <source :src="currentAudioSrc1" type="audio/mpeg" />
+                <source :src="currentAudioSrc3" type="audio/mpeg" />
                 Your browser does not support the audio element.
               </audio>
             </div>
           </div>
         </div>
+        <!-- end -->
       </div>
-    <!-- end -->
     </div>
   </div>
 </template>
