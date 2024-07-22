@@ -16,7 +16,7 @@ function playAudio(country) {
         "https://download.samplelib.com/mp3/sample-3s.mp3";
       break;
     case "indo":
-      currentAudioSrc.value = "/Audio/IDN/J1_Lobby_Depan.mp3";
+      currentAudioSrc.value = "https://drive.google.com/file/d/1tmG7vaB095xcnQp-og23Y0BU6kjIPSPQ/view?usp=drive_link";
       break;
     case "usa":
       currentAudioSrc.value = "/Audio/ENG/J1_Front_Lobby.mp3";
@@ -35,7 +35,7 @@ function playAudioj2(country) {
         "https://download.samplelib.com/mp3/sample-3s.mp3";
       break;
     case "indo":
-      currentAudioSrc1.value = "/tourplan/public/Audio/IDN/J2_Depan_PO-Supir.mp3";
+      currentAudioSrc1.value = "https://drive.google.com/file/d/1CftKJr1mRS633xdCuI17Fxrb_4w5V6AM/view?usp=drive_link";
       break;
     case "usa":
       currentAudioSrc1.value = "/tourplan/public/Audio/ENG/J2_Front_of_Driver's_Post.mp3";
