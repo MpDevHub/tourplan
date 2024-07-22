@@ -16,10 +16,10 @@ function playAudio(country) {
         "https://download.samplelib.com/mp3/sample-3s.mp3";
       break;
     case "indo":
-      currentAudioSrc.value = "/Audio/IDN/J1_Lobby_Depan.mp3";
+      currentAudioSrc.value = "/tourplan/Audio/IDN/J1_Lobby_Depan.mp3";
       break;
     case "usa":
-      currentAudioSrc.value = "/Audio/ENG/J1_Front_Lobby.mp3";
+      currentAudioSrc.value = "/tourplan/Audio/ENG/J1_Front_Lobby.mp3";
       break;
   }
 

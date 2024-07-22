@@ -1,9 +1,11 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
+import Audio from './components/Audio.vue'
 </script>
 
 <template>
-  <HelloWorld/>
+  <!-- <HelloWorld/> -->
+  <Audio/>
 </template>
 
 <style scoped>
