@@ -32,15 +32,16 @@ const playAudio = (audio) => {
   currentAudio = audio;
   // audio.load();
   const playPromise = audio.play();
-  
+
   if (playPromise !== undefined) {
-    playPromise.then(_ => {
-      // Audio started playing successfully!
-    })
-    .catch(error => {
-      // Playback was interrupted (handle the error)
-      console.error("Audio playback interrupted:", error);
-    });
+    playPromise
+      .then((_) => {
+        // Audio started playing successfully!
+      })
+      .catch((error) => {
+        // Playback was interrupted (handle the error)
+        console.error("Audio playback interrupted:", error);
+      });
   }
 };
 
@@ -74,7 +75,6 @@ const playAudio = (audio) => {
 //     });
 // };
 
-
 // const playAudio = (audio) => {
 //   if (currentAudio) {
 //     currentAudio.pause();
@@ -89,8 +89,6 @@ const playAudio = (audio) => {
 </script>
 
 <template>
-  
-
   <!-- hero -->
   <div
     class="bg-cover bg-center h-screen"
@@ -179,7 +177,44 @@ const playAudio = (audio) => {
                 <!-- <td><input type="checkbox" checked="checked" class="checkbox checkbox-warning" /></td> -->
                 <td>{{ index + 1 }}</td>
                 <td>
-                  <div class="badge badge-info badge-lg">
+                  <!-- <div
+                    :class="
+                      song.title === 'J1' ||
+                      song.title === 'J2' ||
+                      song.title === 'J3' ||
+                      song.title === 'J4' ||
+                      song.title === 'J5'
+                        ? 'badge badge-success badge-lg'
+                        : 'badge badge-info badge-lg'
+                    "
+                  >
+                    {{ song.title }}
+                  </div> -->
+                  <div
+                    v-if="song.title.startsWith('J')"
+                    class="badge badge-success badge-lg"
+                  >
+                    {{ song.title }}
+                  </div>
+                  <div
+                    v-else-if="song.title.startsWith('A')"
+                    class="badge badge-warning badge-lg"
+                  >
+                    {{ song.title }}
+                  </div>
+                  <div
+                    v-else-if="song.title.startsWith('B')"
+                    class="badge badge-error badge-lg"
+                  >
+                    {{ song.title }}
+                  </div>
+                  <div
+                    v-else-if="song.title.startsWith('C')"
+                    class="badge badge-accent badge-lg"
+                  >
+                    {{ song.title }}
+                  </div>
+                  <div v-else class="badge badge-info badge-lg">
                     {{ song.title }}
                   </div>
                 </td>
