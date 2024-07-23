@@ -17,13 +17,75 @@ const audioSrc = (song) => {
   return song.audio[selectedLanguage.value];
 };
 
+// const playAudio = (audio) => {
+//   if (currentAudio) {
+//     currentAudio.pause();
+//   }
+//   currentAudio = audio;
+//   audio.play();
+// };
+
 const playAudio = (audio) => {
   if (currentAudio) {
     currentAudio.pause();
   }
   currentAudio = audio;
-  audio.play();
+  // audio.load();
+  const playPromise = audio.play();
+  
+  if (playPromise !== undefined) {
+    playPromise.then(_ => {
+      // Audio started playing successfully!
+    })
+    .catch(error => {
+      // Playback was interrupted (handle the error)
+      console.error("Audio playback interrupted:", error);
+    });
+  }
 };
+
+// const playAudio = (song) => {
+//   const audioSrc = song.audio[selectedLanguage.value];
+//   fetch(audioSrc)
+//    .then(response => response.blob())
+//    .then(blob => {
+//       const audio = new Audio(URL.createObjectURL(blob));
+//       if (currentAudio) {
+//         currentAudio.pause();
+//       }
+//       currentAudio = audio;
+//       audio.play();
+//     });
+// };
+
+// const playAudio = (song) => {
+//   if (currentAudio) {
+//     currentAudio.pause();
+//   }
+//   fetch(song.audio[selectedLanguage.value])
+//     .then(response => response.blob())
+//     .then(blob => {
+//       const audio = new Audio(URL.createObjectURL(blob));
+//       currentAudio = audio;
+//       audio.play();
+//     })
+//     .catch(error => {
+//       console.error("Audio playback interrupted:", error);
+//     });
+// };
+
+
+// const playAudio = (audio) => {
+//   if (currentAudio) {
+//     currentAudio.pause();
+//   }
+//   currentAudio = audio;
+//   audio.play().then(() => {
+//     // Audio playback started successfully
+//   }).catch(error => {
+//     // Audio playback was interrupted or prevented
+//   });
+// };
 </script>
 
 <template>
@@ -128,6 +190,7 @@ const playAudio = (audio) => {
                 <td>
                   <audio
                     :src="audioSrc(song)"
+                    preload="auto"
                     @play="playAudio($event.target)"
                     controls
                   ></audio>

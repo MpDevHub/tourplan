@@ -40,7 +40,7 @@ export const songs = [
       artist: "Ex-70A",
       audio: {
         ina: "/tourplan/Audio/IDN/A2_Ex_70A.mp3",
-        eng: "/tourplan/Audio/ENG/J1_Front_Lobby.mp3",
+        eng: "/tourplan/Audio/ENG/A2_Ex-70A.mp3",
         chn: "/tourplan/Audio/CHN/A2_Ex-70A.mp3",
       },
     },
@@ -49,7 +49,7 @@ export const songs = [
       artist: "Multi Drawing",
       audio: {
         ina: "/tourplan/Audio/IDN/A3_Multi_Drawing.mp3",
-        eng: "/tourplan/Audio/ENG/J1_Front_Lobby.mp3",
+        eng: "/tourplan/Audio/ENG/A3_Multi_Drawing.mp3",
         chn: "/tourplan/Audio/CHN/A3_Multi_Drawing.mp3",
       },
     },
@@ -58,7 +58,7 @@ export const songs = [
       artist: "Ex-100B",
       audio: {
         ina: "/tourplan/Audio/IDN/B1_Ex_100B.mp3",
-        eng: "/tourplan/Audio/ENG/J1_Front_Lobby.mp3",
+        eng: "/tourplan/Audio/ENG/B1_Ex-100B.mp3",
         chn: "/tourplan/Audio/CHN/B1_Ex-100B.mp3",
       },
     },
@@ -67,7 +67,7 @@ export const songs = [
       artist: "Ex-120D",
       audio: {
         ina: "/tourplan/Audio/IDN/A4_Ex-120D.mp3",
-        eng: "/tourplan/Audio/ENG/J1_Front_Lobby.mp3",
+        eng: "/tourplan/Audio/ENG/A4_Ex-120D.mp3",
         chn: "/tourplan/Audio/CHN/A4_Ex-120D.mp3",
       },
     },
@@ -76,7 +76,7 @@ export const songs = [
       artist: "Turunan Ex-90B",
       audio: {
         ina: "/tourplan/Audio/IDN/B2_Turunan_Ex-90B.mp3",
-        eng: "/tourplan/Audio/ENG/J1_Front_Lobby.mp3",
+        eng: "/tourplan/Audio/ENG/B2_Ex-90B_derivative.mp3",
         chn: "/tourplan/Audio/CHN/B2_Turunan_Ex-90B.mp3",
       },
     },
@@ -85,8 +85,8 @@ export const songs = [
       artist: "Gerbang Plant C",
       audio: {
         ina: "/tourplan/Audio/IDN/C1_Gerbang_Plant_C.mp3",
-        eng: "/tourplan/Audio/ENG/J1_Front_Lobby.mp3",
-        chn: "/tourplan/Audio/CHN/J1_Front_Lobby.mp3",
+        eng: "/tourplan/Audio/ENG/C1_Plant_C_Gate.mp3",
+        chn: "/tourplan/Audio/CHN/C1_Gerbang_Plant_C.mp3",
       },
     },
     {
@@ -94,7 +94,7 @@ export const songs = [
       artist: "Ex-120E",
       audio: {
         ina: "/tourplan/Audio/IDN/C2_Ex-120E.mp3",
-        eng: "/tourplan/Audio/ENG/J1_Front_Lobby.mp3",
+        eng: "/tourplan/Audio/ENG/C2_Ex-120E.mp3",
         chn: "/tourplan/Audio/CHN/C2_Ex-120E.mp3",
       },
     },
@@ -103,7 +103,7 @@ export const songs = [
       artist: "Cb-20A",
       audio: {
         ina: "/tourplan/Audio/IDN/C3_Cb-20A.mp3",
-        eng: "/tourplan/Audio/ENG/J1_Front_Lobby.mp3",
+        eng: "/tourplan/Audio/ENG/C3_Cb-20A.mp3",
         chn: "/tourplan/Audio/CHN/C3_Cb-20A.mp3",
       },
     },
@@ -112,7 +112,7 @@ export const songs = [
       artist: "Tining",
       audio: {
         ina: "/tourplan/Audio/IDN/C4_Tining.mp3",
-        eng: "/tourplan/Audio/ENG/J1_Front_Lobby.mp3",
+        eng: "/tourplan/Audio/ENG/C4_Tining.mp3",
         chn: "/tourplan/Audio/CHN/C4_Tining.mp3",
       },
     },
@@ -121,7 +121,7 @@ export const songs = [
       artist: "CCV",
       audio: {
         ina: "/tourplan/Audio/IDN/D1_CCV.mp3",
-        eng: "/tourplan/Audio/ENG/J1_Front_Lobby.mp3",
+        eng: "/tourplan/Audio/ENG/D1_CCV.mp3",
         chn: "/tourplan/Audio/CHN/D1_CCV.mp3",
       },
     },
@@ -130,7 +130,7 @@ export const songs = [
       artist: "Plant D",
       audio: {
         ina: "/tourplan/Audio/IDN/D2_Plant_D.mp3",
-        eng: "/tourplan/Audio/ENG/J1_Front_Lobby.mp3",
+        eng: "/tourplan/Audio/ENG/D2_Plant_D.mp3",
         chn: "/tourplan/Audio/CHN/D2_Plant_D.mp3",
       },
     },
@@ -139,7 +139,7 @@ export const songs = [
       artist: "Cb-26B",
       audio: {
         ina: "/tourplan/Audio/IDN/D3_Cb-26B.mp3",
-        eng: "/tourplan/Audio/ENG/J1_Front_Lobby.mp3",
+        eng: "/tourplan/Audio/ENG/D3_Cb-26B.mp3",
         chn: "/tourplan/Audio/CHN/D3_Cb-26B.mp3",
       },
     },
@@ -148,7 +148,7 @@ export const songs = [
       artist: "Shielding Room",
       audio: {
         ina: "/tourplan/Audio/IDN/Q1_Shielding_Room.mp3",
-        eng: "/tourplan/Audio/ENG/J1_Front_Lobby.mp3",
+        eng: "/tourplan/Audio/ENG/Q1_Shielding_Room.mp3",
         chn: "/tourplan/Audio/CHN/Q1_Shielding_Room.mp3",
       },
     },
@@ -157,7 +157,7 @@ export const songs = [
       artist: "QC LV",
       audio: {
         ina: "/tourplan/Audio/IDN/Q2_QC_LV.mp3",
-        eng: "/tourplan/Audio/ENG/J1_Front_Lobby.mp3",
+        eng: "/tourplan/Audio/ENG/Q2_QC_LV.mp3",
         chn: "/tourplan/Audio/CHN/Q2_QC_LC.mp3",
       },
     },
@@ -166,7 +166,7 @@ export const songs = [
       artist: "Menuju Plant E",
       audio: {
         ina: "/tourplan/Audio/IDN/J4_Menuju_Plant_E.mp3",
-        eng: "/tourplan/Audio/ENG/J1_Front_Lobby.mp3",
+        eng: "/tourplan/Audio/ENG/J4_Towards_Plant_E.mp3",
         chn: "/tourplan/Audio/CHN/J4_Menuju_Plant_E.mp3",
       },
     },
@@ -175,7 +175,7 @@ export const songs = [
       artist: "Menuju Plant E Depan QC",
       audio: {
         ina: "/tourplan/Audio/IDN/E1_Masuk_Plant_E_Depan_QC.mp3",
-        eng: "/tourplan/Audio/ENG/J1_Front_Lobby.mp3",
+        eng: "/tourplan/Audio/ENG/E1_Enter_Plant_E.mp3",
         chn: "/tourplan/Audio/CHN/E1_Masuk_Plant_E.mp3",
       },
     },
@@ -184,7 +184,7 @@ export const songs = [
       artist: "Menuju Plant E Area Drop Cable",
       audio: {
         ina: "/tourplan/Audio/IDN/E2_Plant_E_Area_Drop_Cable.mp3",
-        eng: "/tourplan/Audio/ENG/J1_Front_Lobby.mp3",
+        eng: "/tourplan/Audio/ENG/E2_Plant_E.mp3",
         chn: "/tourplan/Audio/CHN/E2_Plant_E.mp3",
       },
     },
@@ -193,7 +193,7 @@ export const songs = [
       artist: "Depan Lobby",
       audio: {
         ina: "/tourplan/Audio/IDN/J5_Depan_Lobby.mp3",
-        eng: "/tourplan/Audio/ENG/J1_Front_Lobby.mp3",
+        eng: "/tourplan/Audio/ENG/J5_Front_Lobby.mp3",
         chn: "/tourplan/Audio/CHN/J5_Depan_Lobby.mp3",
       },
     },
