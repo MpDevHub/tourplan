@@ -27,7 +27,18 @@ const playAudio = (audio) => {
 </script>
 
 <template>
-  <div class="navbar bg-base-100">
+  
+
+  <!-- hero -->
+  <div
+    class="bg-cover bg-center h-screen"
+    style="
+      background-image: url('https://jembo.co.id/uploads/img/slider/20200428132012-kabel-dengan-kualitas-terbaik.jpg');
+      filter: blur(8px);
+      -webkit-filter: blur(8px);
+    "
+  ></div>
+  <div class="navbar bg-base-100 absolute top-0">
     <div class="flex-1">
       <a class="btn btn-ghost text-xl">Virtual Plan</a>
     </div>
@@ -74,36 +85,52 @@ const playAudio = (audio) => {
       </ul>
     </div>
   </div>
-
-  <!-- hero -->
-
-  <div class="hero">
-    <div class="hero-content">
+  <!-- table -->
+  <div class="hero absolute top-24">
+    <div class="hero-content bg-base-100 rounded-md">
       <div class="text-center">
-        <p>Pilih Bahasa</p>
-        <ul class="menu menu-horizontal bg-base-200 rounded-box">
-          <select v-model="selectedLanguage" class="select select-bordered w-full max-w-xs">
+        <h1 class="mb-2 font-bold bg-base-100">Pilih Bahasa Audio</h1>
+        <ul class="menu menu-horizontal bg-base-200 rounded-box mb-6">
+          <select
+            v-model="selectedLanguage"
+            class="select select-bordered w-full max-w-xs"
+          >
             <option value="ina">Indonesia</option>
             <option value="eng">English</option>
             <option value="chn">Mandarin</option>
           </select>
         </ul>
-        <div class="overflow-x-auto">
-          <table class="table table-sm">
+        <div class="h-96 overflow-x-auto">
+          <table class="table table-xs table-pin-rows">
             <!-- head -->
-            <thead>
+            <thead class="font-bold">
               <tr>
                 <th>No</th>
+                <th>Kode Area</th>
                 <th>Area</th>
+                <th>Mark</th>
                 <th>Audio</th>
               </tr>
             </thead>
-            <tbody>
-              <tr v-for="song in songs" :key="song.title">
-                <td><div class="badge badge-info badge-lg">{{ song.title }}</div></td>
+            <tbody class="bg-base-100">
+              <tr v-for="(song, index) in songs" :key="song.title">
+                <!-- <td><input type="checkbox" checked="checked" class="checkbox checkbox-warning" /></td> -->
+                <td>{{ index + 1 }}</td>
+                <td>
+                  <div class="badge badge-info badge-lg">
+                    {{ song.title }}
+                  </div>
+                </td>
                 <td>{{ song.artist }}</td>
                 <td>
-                  <audio :src="audioSrc(song)" @play="playAudio($event.target)" controls></audio>
+                  <input type="checkbox" class="checkbox checkbox-warning" />
+                </td>
+                <td>
+                  <audio
+                    :src="audioSrc(song)"
+                    @play="playAudio($event.target)"
+                    controls
+                  ></audio>
                 </td>
               </tr>
             </tbody>
