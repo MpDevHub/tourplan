@@ -71,9 +71,9 @@ const playAudio = (song) => {
 <template>
   <!-- hero -->
   <div
-    class="bg-cover bg-center h-screen"
+    class="bg-contain h-screen"
     style="
-      background-image: url('/tourplan/public/bg-img.jpeg');
+      background-image: url('https://i.ibb.co.com/QpBpWP3/bg-img.jpg');
       filter: blur(8px);
       -webkit-filter: blur(1px);
     "
