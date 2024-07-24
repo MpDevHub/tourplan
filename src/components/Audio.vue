@@ -104,7 +104,7 @@ const playAudio = (song) => {
             </svg>
             <input
               type="checkbox"
-              value="bumblebee"
+              value="night"
               class="toggle theme-controller"
             />
             <svg
@@ -127,10 +127,12 @@ const playAudio = (song) => {
   </div>
   <!-- table -->
   <div class="hero absolute top-24">
-    <div class="hero-content bg-base-100 rounded-md">
+    <div class="hero-content bg-base-100 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-40 border border-gray-100
+ rounded-md">
+      <!-- bg-base-100 -->
       <div class="text-center">
-        <h1 class="mb-2 font-bold bg-base-100">Pilih Bahasa Audio</h1>
-        <ul class="menu menu-horizontal bg-base-200 rounded-box mb-6">
+        <h1 class="mb-2 text-base-content font-bold">Pilih Bahasa Audio</h1>
+        <ul class="menu menu-horizontal rounded-box mb-6">
           <select
             v-model="selectedLanguage"
             class="select select-bordered w-full max-w-xs"
@@ -143,7 +145,7 @@ const playAudio = (song) => {
         <div class="h-96 overflow-x-auto">
           <table class="table table-xs table-pin-rows">
             <!-- head -->
-            <thead class="font-bold">
+            <thead>
               <tr>
                 <th>No</th>
                 <th>Kode Area</th>
@@ -152,7 +154,7 @@ const playAudio = (song) => {
                 <th>Audio</th>
               </tr>
             </thead>
-            <tbody class="bg-base-100">
+            <tbody class="">
               <tr v-for="(song, index) in songs" :key="song.title">
                 <!-- <td><input type="checkbox" checked="checked" class="checkbox checkbox-warning" /></td> -->
                 <td>{{ index + 1 }}</td>
