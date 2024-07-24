@@ -73,9 +73,9 @@ const playAudio = (song) => {
   <div
     class="bg-cover bg-center h-screen"
     style="
-      background-image: url('https://jembo.co.id/uploads/img/slider/20200428132012-kabel-dengan-kualitas-terbaik.jpg');
+      background-image: url('/tourplan/public/bg-img.jpeg');
       filter: blur(8px);
-      -webkit-filter: blur(8px);
+      -webkit-filter: blur(1px);
     "
   ></div>
   <div class="navbar bg-base-100 absolute top-0">
