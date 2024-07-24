@@ -143,7 +143,7 @@ const playAudio = (song) => {
           </select>
         </ul>
         <div class="h-96 overflow-x-auto">
-          <table class="table table-xs table-pin-rows">
+          <table class="table text-xs table-pin-rows">
             <!-- head -->
             <thead>
               <tr>
@@ -159,19 +159,6 @@ const playAudio = (song) => {
                 <!-- <td><input type="checkbox" checked="checked" class="checkbox checkbox-warning" /></td> -->
                 <td>{{ index + 1 }}</td>
                 <td>
-                  <!-- <div
-                    :class="
-                      song.title === 'J1' ||
-                      song.title === 'J2' ||
-                      song.title === 'J3' ||
-                      song.title === 'J4' ||
-                      song.title === 'J5'
-                        ? 'badge badge-success badge-lg'
-                        : 'badge badge-info badge-lg'
-                    "
-                  >
-                    {{ song.title }}
-                  </div> -->
                   <div
                     v-if="song.title.startsWith('J')"
                     class="badge badge-success badge-lg"
