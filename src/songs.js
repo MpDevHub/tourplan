@@ -17,15 +17,15 @@ export const songs = [
         chn: "/tourplan/Audio/CHN/J2_Depan_Pos_Sopir.mp3",
       },
     },
-    {
-      title: "J3",
-      artist: "Depan Parkir-Koperasi",
-      audio: {
-        ina: "/tourplan/Audio/IDN/J3_Depan_Parkir_Koperasi.mp3",
-        eng: "/tourplan/Audio/ENG/J3_Front_Parkir_Koperasi.mp3",
-        chn: "/tourplan/Audio/CHN/J3_Front_Parkir-Koperasi.mp3",
-      },
-    },
+    // {
+    //   title: "J3",
+    //   artist: "Depan Parkir-Koperasi",
+    //   audio: {
+    //     ina: "/tourplan/Audio/IDN/J3_Depan_Parkir_Koperasi.mp3",
+    //     eng: "/tourplan/Audio/ENG/J3_Front_Parkir_Koperasi.mp3",
+    //     chn: "/tourplan/Audio/CHN/J3_Front_Parkir-Koperasi.mp3",
+    //   },
+    // },
     {
       title: "A1",
       artist: "Masuk Pabrik",
@@ -100,18 +100,18 @@ export const songs = [
     },
     {
       title: "C3",
-      artist: "Cb-20A",
+      artist: "Tining Sambil balik arah",
       audio: {
-        ina: "/tourplan/Audio/IDN/C3_Cb-20A.mp3",
+        ina: "/tourplan/Audio/IDN/C3_Tining_balik_arah.mp3",
         eng: "/tourplan/Audio/ENG/C3_Cb-20A.mp3",
         chn: "/tourplan/Audio/CHN/C3_Cb-20A.mp3",
       },
     },
     {
       title: "C4",
-      artist: "Tining",
+      artist: "Cb-20A",
       audio: {
-        ina: "/tourplan/Audio/IDN/C4_Tining.mp3",
+        ina: "/tourplan/Audio/IDN/C4_Cb-20A.mp3",
         eng: "/tourplan/Audio/ENG/C4_Tining.mp3",
         chn: "/tourplan/Audio/CHN/C4_Tining.mp3",
       },
@@ -162,10 +162,10 @@ export const songs = [
       },
     },
     {
-      title: "J4",
+      title: "J3",
       artist: "Menuju Plant E",
       audio: {
-        ina: "/tourplan/Audio/IDN/J4_Menuju_Plant_E.mp3",
+        ina: "/tourplan/Audio/IDN/J3_Menuju_Plant_E.mp3",
         eng: "/tourplan/Audio/ENG/J4_Towards_Plant_E.mp3",
         chn: "/tourplan/Audio/CHN/J4_Menuju_Plant_E.mp3",
       },
@@ -181,7 +181,7 @@ export const songs = [
     },
     {
       title: "E2",
-      artist: "Menuju Plant E Area Drop Cable",
+      artist: "Plant E Ex-90 G -Drop Cable",
       audio: {
         ina: "/tourplan/Audio/IDN/E2_Plant_E_Area_Drop_Cable.mp3",
         eng: "/tourplan/Audio/ENG/E2_Plant_E.mp3",
@@ -189,10 +189,10 @@ export const songs = [
       },
     },
     {
-      title: "J5",
-      artist: "Depan Lobby",
+      title: "J4",
+      artist: "Dekat pintu GOR",
       audio: {
-        ina: "/tourplan/Audio/IDN/J5_Depan_Lobby.mp3",
+        ina: "/tourplan/Audio/IDN/J4_Dekat_pintu_GOR.mp3",
         eng: "/tourplan/Audio/ENG/J5_Front_Lobby.mp3",
         chn: "/tourplan/Audio/CHN/J5_Depan_Lobby.mp3",
       },
