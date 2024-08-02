@@ -40,19 +40,62 @@ const audioSrc = (song) => {
 //     });
 // };
 
+// const playAudio = (song) => {
+//   const audioSrc = song.audio[selectedLanguage.value];
+//   fetch(audioSrc)
+//     .then((response) => response.blob())
+//     .then((blob) => {
+//       const audio = new Audio(URL.createObjectURL(blob));
+//       if (currentAudio) {
+//         currentAudio.pause();
+//       }
+//       currentAudio = audio;
+//       audio.play();
+//       isPlaying.value = true;
+//     });
+// };
+
+// const playAudio = (song) => {
+//   if (song.playing) {
+//     song.playing = false;
+//     currentAudio.pause();
+//   } else {
+//     song.playing = true;
+//     const audioSrc = song.audio[selectedLanguage.value];
+//     fetch(audioSrc)
+//       .then((response) => response.blob())
+//       .then((blob) => {
+//         const audio = new Audio(URL.createObjectURL(blob));
+//         if (currentAudio) {
+//           currentAudio.pause();
+//         }
+//         currentAudio = audio;
+//         audio.play();
+//       });
+//   }
+// };
+
 const playAudio = (song) => {
-  const audioSrc = song.audio[selectedLanguage.value];
-  fetch(audioSrc)
-    .then((response) => response.blob())
-    .then((blob) => {
-      const audio = new Audio(URL.createObjectURL(blob));
-      if (currentAudio) {
-        currentAudio.pause();
-      }
-      currentAudio = audio;
-      audio.play();
-      isPlaying.value = true;
+  if (song.playing) {
+    song.playing = false;
+    currentAudio.pause();
+  } else {
+    paginatedSongs.value.forEach((s) => {
+      s.playing = false;
     });
+    song.playing = true;
+    const audioSrc = song.audio[selectedLanguage.value];
+    fetch(audioSrc)
+      .then((response) => response.blob())
+      .then((blob) => {
+        const audio = new Audio(URL.createObjectURL(blob));
+        if (currentAudio) {
+          currentAudio.pause();
+        }
+        currentAudio = audio;
+        audio.play();
+      });
+  }
 };
 
 const pauseAudio = () => {
@@ -65,8 +108,37 @@ const pauseAudio = () => {
 const togglePlay = (song) => {
   if (isPlaying.value) {
     pauseAudio();
+    isPlaying.value = false;
   } else {
     playAudio(song);
+    isPlaying.value = true;
+  }
+};
+
+// pagination
+
+const currentPage = ref(1);
+const cardsPerPage = ref(4);
+
+const paginatedSongs = computed(() => {
+  const start = (currentPage.value - 1) * cardsPerPage.value;
+  const end = start + cardsPerPage.value;
+  return songs.slice(start, end);
+});
+
+const totalPages = computed(() => {
+  return Math.ceil(songs.length / cardsPerPage.value);
+});
+
+const nextPage = () => {
+  if (currentPage.value < totalPages.value) {
+    currentPage.value++;
+  }
+};
+
+const prevPage = () => {
+  if (currentPage.value > 1) {
+    currentPage.value--;
   }
 };
 
@@ -113,15 +185,15 @@ const togglePlay = (song) => {
     <div class="flex-1">
       <a class="btn btn-ghost text-xl">Virtual Plan</a>
       <ul class="menu menu-horizontal rounded-box">
-          <select
-            v-model="selectedLanguage"
-            class="select select-bordered w-full max-w-xs"
-          >
-            <option value="ina">Indonesia</option>
-            <option value="eng">English</option>
-            <option value="chn">Mandarin</option>
-          </select>
-        </ul>
+        <select
+          v-model="selectedLanguage"
+          class="select select-bordered w-full max-w-xs"
+        >
+          <option value="ina">Indonesia</option>
+          <option value="eng">English</option>
+          <option value="chn">Mandarin</option>
+        </select>
+      </ul>
     </div>
     <div class="flex-none">
       <ul class="menu menu-horizontal px-9">
@@ -188,44 +260,68 @@ const togglePlay = (song) => {
     </div>
   </div> -->
 
-  <div>
-    
-  </div>
-  <div
-    v-for="(song, index) in songs"
-    :key="song.title"
-    class="grid grid-cols-1 grid-rows-1 text-4xl"
-  >
-    <div class="card shadow-xl">
-      <div class="card-body text-center items-center">
-        <h2 class="card-title text-center">{{ song.title }}</h2>
-        <p>{{ song.artist }}</p>
-        <div class="card-actions">
-          <!-- <button
-            class="w-24 h-24 rounded-full bg-blue-500 focus:outline-none"
-            onclick="play();"
-          >
-            <font-awesome-icon icon="play" id="play-btn"/>
-          </button> -->
-          <button
-            class="w-24 h-24 rounded-full bg-blue-500 focus:outline-none"
-            @click="togglePlay(song)"
-          >
-            <font-awesome-icon
-              :icon="isPlaying ? 'pause' : 'play'"
-              id="play-btn"
-            />
-          </button>
-          <!-- <audio
-            :src="audioSrc(song)"
-            preload="auto"
-            @play="playAudio($event.target)"
-            controls
-          ></audio> -->
+  <div class="grid grid-cols-2">
+    <div
+      v-for="(song, index) in paginatedSongs"
+      :key="song.title"
+      class="items-center text-center text-4xl"
+    >
+      <div class="hero bg-base-200">
+        <div class="hero-content flex-col lg:flex-row">
+          <div>
+            <h1 class="text-5xl font-bold">{{ song.title }}</h1>
+            <p class="py-6">
+              {{ song.artist }}
+            </p>
+            <button
+              class="w-24 h-24 rounded-full bg-blue-500 focus:outline-none"
+              @click="playAudio(song)"
+            >
+              <font-awesome-icon :icon="song.playing ? 'pause' : 'play'" />
+            </button>
+            <!-- <button
+              class="w-24 h-24 rounded-full bg-blue-500 focus:outline-none"
+              @click="togglePlay(song)"
+            >
+              <font-awesome-icon :icon="isPlaying ? 'pause' : 'play'" />
+            </button> -->
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <div class="flex justify-center mt-4 join">
+    <button
+      class="join-item btn btn-outline"
+      @click="prevPage"
+      :disabled="currentPage === 1"
+    >
+      Prev
+    </button>
+    <button
+      class="join-item btn btn-outline"
+      @click="nextPage"
+      :disabled="currentPage === totalPages"
+    >
+      Next
+    </button>
+  </div>
+  <!-- <div class="flex justify-center mt-4 join">
+    <button
+      class="btn btn-sm btn-outline btn-prev"
+      @click="prevPage"
+      :disabled="currentPage === 1"
+    >
+      Prev
+    </button>
+    <button
+      class="btn btn-sm btn-outline btn-next"
+      @click="nextPage"
+      :disabled="currentPage === totalPages"
+    >
+      Next
+    </button>
+  </div> -->
 
   <!-- <div class="card" v-for="song in songs" :key="song.title">
     <h3>{{ song.title }}</h3>
