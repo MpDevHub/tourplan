@@ -4,6 +4,7 @@ import { songs } from "../songs"; // Import your data source
 
 const selectedLanguage = ref("ina");
 let currentAudio = null;
+let isPlaying = ref(false);
 
 const changeLanguage = () => {
   // Update audio source based on selected language
@@ -25,19 +26,49 @@ const audioSrc = (song) => {
 //   audio.play();
 // };
 
+// const playAudio = (song) => {
+//   const audioSrc = song.audio[selectedLanguage.value];
+//   fetch(audioSrc)
+//     .then((response) => response.blob())
+//     .then((blob) => {
+//       const audio = new Audio(URL.createObjectURL(blob));
+//       if (currentAudio) {
+//         currentAudio.pause();
+//       }
+//       currentAudio = audio;
+//       audio.play();
+//     });
+// };
+
 const playAudio = (song) => {
-   const audioSrc = song.audio[selectedLanguage.value];
-   fetch(audioSrc)
-    .then(response => response.blob())
-    .then(blob => {
-       const audio = new Audio(URL.createObjectURL(blob));
-       if (currentAudio) {
-         currentAudio.pause();
-       }
-       currentAudio = audio;
-       audio.play();
-     });
- };
+  const audioSrc = song.audio[selectedLanguage.value];
+  fetch(audioSrc)
+    .then((response) => response.blob())
+    .then((blob) => {
+      const audio = new Audio(URL.createObjectURL(blob));
+      if (currentAudio) {
+        currentAudio.pause();
+      }
+      currentAudio = audio;
+      audio.play();
+      isPlaying.value = true;
+    });
+};
+
+const pauseAudio = () => {
+  if (currentAudio) {
+    currentAudio.pause();
+    isPlaying.value = false;
+  }
+};
+
+const togglePlay = (song) => {
+  if (isPlaying.value) {
+    pauseAudio();
+  } else {
+    playAudio(song);
+  }
+};
 
 // const playAudio = (song) => {
 //   if (currentAudio) {
@@ -70,17 +101,27 @@ const playAudio = (song) => {
 
 <template>
   <!-- hero -->
-  <div
+  <!-- <div
     class="bg-contain h-screen"
     style="
       background-image: url('https://i.ibb.co.com/QpBpWP3/bg-img.jpg');
       filter: blur(8px);
       -webkit-filter: blur(1px);
     "
-  ></div>
-  <div class="navbar bg-base-100 absolute top-0">
+  ></div> -->
+  <div class="navbar bg-base-100">
     <div class="flex-1">
       <a class="btn btn-ghost text-xl">Virtual Plan</a>
+      <ul class="menu menu-horizontal rounded-box">
+          <select
+            v-model="selectedLanguage"
+            class="select select-bordered w-full max-w-xs"
+          >
+            <option value="ina">Indonesia</option>
+            <option value="eng">English</option>
+            <option value="chn">Mandarin</option>
+          </select>
+        </ul>
     </div>
     <div class="flex-none">
       <ul class="menu menu-horizontal px-9">
@@ -126,10 +167,11 @@ const playAudio = (song) => {
     </div>
   </div>
   <!-- table -->
-  <div class="hero absolute top-24">
-    <div class="hero-content bg-base-100 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-40 border border-gray-100
- rounded-md">
-      <!-- bg-base-100 -->
+  <!-- <div class="hero absolute top-12">
+    <div
+      class="hero-content bg-base-100 rounded-md bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-40 border border-gray-100 rounded-md"
+    >
+      bg-base-100
       <div class="text-center">
         <h1 class="mb-2 text-base-content font-bold">Pilih Bahasa Audio</h1>
         <ul class="menu menu-horizontal rounded-box mb-6">
@@ -142,66 +184,44 @@ const playAudio = (song) => {
             <option value="chn">Mandarin</option>
           </select>
         </ul>
-        <div class="h-96 overflow-x-auto">
-          <table class="table text-xs table-pin-rows">
-            <!-- head -->
-            <thead>
-              <tr>
-                <th>No</th>
-                <th>Kode Area</th>
-                <th>Area</th>
-                <th>Mark</th>
-                <th>Audio</th>
-              </tr>
-            </thead>
-            <tbody class="">
-              <tr v-for="(song, index) in songs" :key="song.title">
-                <!-- <td><input type="checkbox" checked="checked" class="checkbox checkbox-warning" /></td> -->
-                <td>{{ index + 1 }}</td>
-                <td>
-                  <div
-                    v-if="song.title.startsWith('J')"
-                    class="badge badge-success badge-lg"
-                  >
-                    {{ song.title }}
-                  </div>
-                  <div
-                    v-else-if="song.title.startsWith('A')"
-                    class="badge badge-warning badge-lg"
-                  >
-                    {{ song.title }}
-                  </div>
-                  <div
-                    v-else-if="song.title.startsWith('B')"
-                    class="badge badge-error badge-lg"
-                  >
-                    {{ song.title }}
-                  </div>
-                  <div
-                    v-else-if="song.title.startsWith('C')"
-                    class="badge badge-accent badge-lg"
-                  >
-                    {{ song.title }}
-                  </div>
-                  <div v-else class="badge badge-info badge-lg">
-                    {{ song.title }}
-                  </div>
-                </td>
-                <td>{{ song.artist }}</td>
-                <td>
-                  <input type="checkbox" class="checkbox checkbox-warning" />
-                </td>
-                <td>
-                  <audio
-                    :src="audioSrc(song)"
-                    preload="auto"
-                    @play="playAudio($event.target)"
-                    controls
-                  ></audio>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+      </div>
+    </div>
+  </div> -->
+
+  <div>
+    
+  </div>
+  <div
+    v-for="(song, index) in songs"
+    :key="song.title"
+    class="grid grid-cols-1 grid-rows-1 text-4xl"
+  >
+    <div class="card shadow-xl">
+      <div class="card-body text-center items-center">
+        <h2 class="card-title text-center">{{ song.title }}</h2>
+        <p>{{ song.artist }}</p>
+        <div class="card-actions">
+          <!-- <button
+            class="w-24 h-24 rounded-full bg-blue-500 focus:outline-none"
+            onclick="play();"
+          >
+            <font-awesome-icon icon="play" id="play-btn"/>
+          </button> -->
+          <button
+            class="w-24 h-24 rounded-full bg-blue-500 focus:outline-none"
+            @click="togglePlay(song)"
+          >
+            <font-awesome-icon
+              :icon="isPlaying ? 'pause' : 'play'"
+              id="play-btn"
+            />
+          </button>
+          <!-- <audio
+            :src="audioSrc(song)"
+            preload="auto"
+            @play="playAudio($event.target)"
+            controls
+          ></audio> -->
         </div>
       </div>
     </div>
