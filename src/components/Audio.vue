@@ -1,9 +1,15 @@
 <script setup>
 import { ref, computed } from "vue";
 import { songs } from "../songs"; // Import your data source
+import avatar from "./Avatar.vue";
+
+// const selectedLanguage = ref("ina");
+// let currentAudio = null;
+// let isPlaying = ref(false);
 
 const selectedLanguage = ref("ina");
 let currentAudio = null;
+let playingSongIndex = ref(-1); // -1 indicates no song playing
 let isPlaying = ref(false);
 
 const changeLanguage = () => {
@@ -75,33 +81,76 @@ const audioSrc = (song) => {
 //   }
 // };
 
+////////////////////////
+
 const playAudio = (song) => {
   if (song.playing) {
     song.playing = false;
     currentAudio.pause();
+    isPlaying.value = false;
   } else {
     paginatedSongs.value.forEach((s) => {
       s.playing = false;
     });
     song.playing = true;
+    isPlaying.value = true;
     const audioSrc = song.audio[selectedLanguage.value];
-    fetch(audioSrc)
-      .then((response) => response.blob())
-      .then((blob) => {
-        const audio = new Audio(URL.createObjectURL(blob));
-        if (currentAudio) {
-          currentAudio.pause();
-        }
-        currentAudio = audio;
-        audio.play();
-      });
+    if (currentAudio) {
+      currentAudio.pause();
+    }
+    currentAudio = new Audio(audioSrc);
+    currentAudio.play();
   }
 };
 
-const pauseAudio = () => {
+// const playAudio = (song) => {
+//   if (isPlaying.value) {
+//     pauseAudio();
+//   }
+//   if (song.playing) return; // Return if the song is already playing
+//   paginatedSongs.value.forEach((s) => {
+//     s.playing = false;
+//   });
+//   song.playing = true;
+//   isPlaying.value = true;
+//   const audioSrc = song.audio[selectedLanguage.value];
+//   fetch(audioSrc)
+//     .then((response) => response.blob())
+//     .then((blob) => {
+//       currentAudio = new Audio(URL.createObjectURL(blob));
+//       currentAudio.play();
+//     })
+//     .catch((error) => {
+//       console.error("Audio playback interrupted:", error);
+//     });
+// };
+
+// const playAudio = (song) => {
+//   if (song.playing) {
+//     song.playing = false;
+//     currentAudio.pause();
+//     isPlaying.value = false;
+//   } else {
+//     paginatedSongs.value.forEach((s) => {
+//       s.playing = false;
+//     });
+//     song.playing = true;
+//     isPlaying.value = true;
+//     const audioSrc = song.audio[selectedLanguage.value];
+//     fetch(audioSrc)
+//       .then((response) => response.blob())
+//       .then((blob) => {
+//         currentAudio = new Audio(URL.createObjectURL(blob));
+//         currentAudio.play();
+//       });
+//   }
+// };
+
+const pauseAudio = (song) => {
   if (currentAudio) {
     currentAudio.pause();
     isPlaying.value = false;
+    song.playing = false;
   }
 };
 
@@ -114,6 +163,42 @@ const togglePlay = (song) => {
     isPlaying.value = true;
   }
 };
+
+//
+
+// const playAudio = (song) => {
+//   if (playingSongIndex.value !== -1) {
+//     songs[playingSongIndex.value].playing = false;
+//   }
+//   playingSongIndex.value = song.index; // Update playing song index
+//   song.playing = true;
+//   isPlaying.value = true;
+//   const audioSrc = song.audio[selectedLanguage.value];
+//   fetch(audioSrc)
+//     .then((response) => response.blob())
+//     .then((blob) => {
+//       currentAudio = new Audio(URL.createObjectURL(blob));
+//       currentAudio.play();
+//     });
+// };
+
+// const pauseAudio = () => {
+//   if (currentAudio) {
+//     currentAudio.pause();
+//     isPlaying.value = false;
+//     if (playingSongIndex.value !== -1) {
+//       songs[playingSongIndex.value].playing = false; // Update song state
+//     }
+//   }
+// };
+
+// const togglePlay = (song) => {
+//   if (isPlaying.value) {
+//     pauseAudio();
+//   } else {
+//     playAudio(song);
+//   }
+// };
 
 // pagination
 
@@ -279,15 +364,10 @@ const prevPage = () => {
             >
               <font-awesome-icon :icon="song.playing ? 'pause' : 'play'" />
             </button>
-            <!-- <button
-              class="w-24 h-24 rounded-full bg-blue-500 focus:outline-none"
-              @click="togglePlay(song)"
-            >
-              <font-awesome-icon :icon="isPlaying ? 'pause' : 'play'" />
-            </button> -->
           </div>
         </div>
       </div>
+      <!-- <avatar></avatar> -->
     </div>
   </div>
   <div class="flex justify-center mt-4 join">
@@ -305,6 +385,23 @@ const prevPage = () => {
     >
       Next
     </button>
+  </div>
+  <div class="fixed bottom-0 left-0 right-0 p-4 bg-base-100 shadow-md">
+    <div class="flex justify-center">
+      <button
+        class="btn btn-sm btn-outline"
+        @click="playAudio(songs[playingSongIndex])"
+      >
+        Play
+      </button>
+      <button
+        class="btn btn-sm btn-outline"
+        @click="pauseAudio"
+        :disabled="!isPlaying"
+      >
+        Stop
+      </button>
+    </div>
   </div>
   <!-- <div class="flex justify-center mt-4 join">
     <button

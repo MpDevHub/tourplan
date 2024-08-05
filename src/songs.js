@@ -7,6 +7,7 @@ export const songs = [
         eng: "/tourplan/Audio/ENG/J1_Front_Lobby.mp3",
         chn: "/tourplan/Audio/CHN/J1_Depan_Lobby.mp3",
       },
+      playing: false,
     },
     {
       title: "J2",
@@ -16,16 +17,17 @@ export const songs = [
         eng: "/tourplan/Audio/ENG/J2_Front_of_Driver's_Post.mp3",
         chn: "/tourplan/Audio/CHN/J2_Depan_Pos_Sopir.mp3",
       },
+      playing: false,
     },
-    // {
-    //   title: "J3",
-    //   artist: "Depan Parkir-Koperasi",
-    //   audio: {
-    //     ina: "/tourplan/Audio/IDN/J3_Depan_Parkir_Koperasi.mp3",
-    //     eng: "/tourplan/Audio/ENG/J3_Front_Parkir_Koperasi.mp3",
-    //     chn: "/tourplan/Audio/CHN/J3_Front_Parkir-Koperasi.mp3",
-    //   },
-    // },
+    {
+      title: "J3",
+      artist: "Depan Parkir-Koperasi",
+      audio: {
+        ina: "/tourplan/Audio/IDN/J3_Menuju_Plant_E.mp3",
+        eng: "/tourplan/Audio/ENG/J3_Front_Parkir_Koperasi.mp3",
+        chn: "/tourplan/Audio/CHN/J3_Front_Parkir-Koperasi.mp3",
+      },
+    },
     {
       title: "A1",
       artist: "Masuk Pabrik",

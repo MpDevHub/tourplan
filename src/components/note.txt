@@ -1,0 +1,120 @@
+<div class="h-96 overflow-x-auto">
+          <table class="table table-pin-rows">
+            <!-- head -->
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Kode Area</th>
+                <th>Area</th>
+                <th>Mark</th>
+                <th>Audio</th>
+              </tr>
+            </thead>
+            <tbody class="">
+              <tr v-for="(song, index) in songs" :key="song.title">
+                <!-- <td><input type="checkbox" checked="checked" class="checkbox checkbox-warning" /></td> -->
+                <td>{{ index + 1 }}</td>
+                <td>
+                  <div
+                    v-if="song.title.startsWith('J')"
+                    class="badge badge-success badge-lg"
+                  >
+                    {{ song.title }}
+                  </div>
+                  <div
+                    v-else-if="song.title.startsWith('A')"
+                    class="badge badge-warning badge-lg"
+                  >
+                    {{ song.title }}
+                  </div>
+                  <div
+                    v-else-if="song.title.startsWith('B')"
+                    class="badge badge-error badge-lg"
+                  >
+                    {{ song.title }}
+                  </div>
+                  <div
+                    v-else-if="song.title.startsWith('C')"
+                    class="badge badge-accent badge-lg"
+                  >
+                    {{ song.title }}
+                  </div>
+                  <div v-else class="badge badge-info badge-lg">
+                    {{ song.title }}
+                  </div>
+                </td>
+                <td>{{ song.artist }}</td>
+                <td>
+                  <input type="checkbox" class="checkbox checkbox-warning" />
+                </td>
+                <td>
+                  <audio
+                    :src="audioSrc(song)"
+                    preload="auto"
+                    @play="playAudio($event.target)"
+                    controls
+                  ></audio>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+
+<div class="grid grid-cols-1 grid-rows-1 text-4xl">
+    <table class="table-auto text-center divide-x">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Area</th>
+          <th>Narasi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(song, index) in paginatedSongs" :key="song.title">
+          <td>{{ song.title }}</td>
+          <td>{{ song.artist }}</td>
+          <td>
+            <button
+              class="w-24 h-24 rounded-full bg-blue-500 focus:outline-none"
+              @click="togglePlay(song)"
+            >
+              <font-awesome-icon :icon="isPlaying ? 'pause' : 'play'" />
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- <div class="card shadow-xl">
+      <div class="card-body text-center items-center">
+        <h2 class="card-title text-center">{{ song.title }}</h2>
+        <p>{{ song.artist }}</p>
+        <div class="card-actions">
+          <button
+            class="w-24 h-24 rounded-full bg-blue-500 focus:outline-none"
+            @click="togglePlay(song)"
+          >
+            <font-awesome-icon :icon="isPlaying ? 'pause' : 'play'" />
+          </button>
+        </div>
+      </div>
+    </div> -->
+  </div>
+  <div class="flex justify-center mt-4">
+    <button
+      class="btn btn-sm btn-outline btn-prev"
+      @click="prevPage"
+      :disabled="currentPage === 1"
+    >
+      Prev
+    </button>
+    <button
+      class="btn btn-sm btn-outline btn-next"
+      @click="nextPage"
+      :disabled="currentPage === totalPages"
+    >
+      Next
+    </button>
+  </div>
