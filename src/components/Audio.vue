@@ -357,7 +357,10 @@ const prevPage = () => {
       <div class="hero bg-base-200">
         <div class="hero-content flex-col lg:flex-row">
           <div>
-            <h1 class="text-5xl font-bold">{{ song.title }}</h1>
+            <div class="flex justify-center">
+              <p class="text-xl">{{ index + 1 }}</p>
+              <h1 class="text-5xl font-bold">{{ song.title }}</h1>
+            </div>
             <p class="py-6">
               {{ song.artist }}
             </p>
