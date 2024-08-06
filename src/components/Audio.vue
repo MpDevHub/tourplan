@@ -371,23 +371,7 @@ const prevPage = () => {
     </div>
   </div>
   <div class="flex justify-center mt-4 join">
-    <button
-      class="join-item btn btn-outline"
-      @click="prevPage"
-      :disabled="currentPage === 1"
-    >
-      Prev
-    </button>
-    <button
-      class="join-item btn btn-outline"
-      @click="nextPage"
-      :disabled="currentPage === totalPages"
-    >
-      Next
-    </button>
-  </div>
-  <div class="fixed bottom-0 left-0 right-0 p-4 bg-base-100 shadow-md">
-    <div class="flex justify-center">
+    <div class="justify-center">
       <button
         class="btn btn-sm btn-outline"
         @click="playAudio(songs[playingSongIndex])"
@@ -400,6 +384,24 @@ const prevPage = () => {
         :disabled="!isPlaying"
       >
         Stop
+      </button>
+    </div>
+  </div>
+  <div class="fixed bottom-0 left-0 right-0 p-4 bg-base-100 shadow-md">
+    <div class="flex justify-center">
+      <button
+        class="join-item btn btn-outline"
+        @click="prevPage"
+        :disabled="currentPage === 1"
+      >
+        Prev
+      </button>
+      <button
+        class="join-item btn btn-outline"
+        @click="nextPage"
+        :disabled="currentPage === totalPages"
+      >
+        Next
       </button>
     </div>
   </div>
