@@ -19,15 +19,15 @@ export const songs = [
       },
       playing: false,
     },
-    {
-      title: "J3",
-      artist: "Depan Parkir-Koperasi",
-      audio: {
-        ina: "/tourplan/Audio/IDN/J3_Menuju_Plant_E.mp3",
-        eng: "/tourplan/Audio/ENG/J3_Front_Parkir_Koperasi.mp3",
-        chn: "/tourplan/Audio/CHN/J3_Front_Parkir-Koperasi.mp3",
-      },
-    },
+    // {
+    //   title: "J3",
+    //   artist: "Depan Parkir-Koperasi",
+    //   audio: {
+    //     ina: "/tourplan/Audio/IDN/J3_Menuju_Plant_E.mp3",
+    //     eng: "/tourplan/Audio/ENG/J3_Front_Parkir_Koperasi.mp3",
+    //     chn: "/tourplan/Audio/CHN/J3_Front_Parkir-Koperasi.mp3",
+    //   },
+    // },
     {
       title: "A1",
       artist: "Masuk Pabrik",
