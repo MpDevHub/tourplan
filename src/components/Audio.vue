@@ -12,9 +12,9 @@ let currentAudio = null;
 let playingSongIndex = ref(-1); // -1 indicates no song playing
 let isPlaying = ref(false);
 
-const changeLanguage = () => {
-  // Update audio source based on selected language
-};
+// const changeLanguage = () => {
+//   Update audio source based on selected language
+// };
 
 // const audioSrc = computed(() => {
 //   return songs.find(song => song.title === song.title).audio[selectedLanguage.value];
@@ -86,26 +86,66 @@ const audioSrc = (song) => {
 
 ////////////////////////
 
+// const playAudio = (song) => {
+//   if (song.playing) {
+//     song.playing = false;
+//     currentAudio.pause();
+//     isPlaying.value = false;
+//   } else {
+//     paginatedSongs.value.forEach((s) => {
+//       s.playing = false;
+//     });
+//     song.playing = true;
+//     isPlaying.value = true;
+//     const audioSrc = song.audio[selectedLanguage.value];
+//     if (currentAudio) {
+//       currentAudio.pause();
+//     }
+//     currentAudio = new Audio(audioSrc);
+//     currentAudio.play();
+//   }
+// };
+
+//////////////////////////////////////////////////////////
+
 const playAudio = (song) => {
   if (song.playing) {
+    // If the song is already playing, just pause it
     song.playing = false;
-    currentAudio.pause();
-    isPlaying.value = false;
-  } else {
-    paginatedSongs.value.forEach((s) => {
-      s.playing = false;
-    });
-    song.playing = true;
-    isPlaying.value = true;
-    const audioSrc = song.audio[selectedLanguage.value];
     if (currentAudio) {
       currentAudio.pause();
+      isPlaying.value = false;
     }
-    currentAudio = new Audio(audioSrc);
-    currentAudio.play();
+    return;
   }
+
+  // Stop any currently playing song
+  paginatedSongs.value.forEach((s) => {
+    s.playing = false;
+  });
+
+  // Play the new song
+  song.playing = true;
+  isPlaying.value = true;
+
+  const audioSrc = song.audio[selectedLanguage.value];
+  if (currentAudio) {
+    currentAudio.pause();
+  }
+
+  // Create a new Audio object for the selected song
+  currentAudio = new Audio(audioSrc);
+
+  // Add event listener to handle end of audio playback
+  currentAudio.addEventListener('ended', () => {
+    song.playing = false;
+    isPlaying.value = false;
+  });
+
+  currentAudio.play();
 };
 
+//////////////////////////////////////////////////////////
 // const playAudio = (song) => {
 //   if (isPlaying.value) {
 //     pauseAudio();
