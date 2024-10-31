@@ -166,7 +166,7 @@ export const songs = [
       artist: "Menuju Plant E",
       audio: {
         ina: "/tourplan/Audio/IDN/J3_Menuju_Plant_E.mp3",
-        eng: "/tourplan/Audio/ENG/J4_Towards_Plant_E.mp3",
+        eng: "/tourplan/Audio/ENG/J3_Menuju_Plant_E.mp3",
         chn: "/tourplan/Audio/CHN/J4_Menuju_Plant_E.mp3",
       },
     },
@@ -184,7 +184,7 @@ export const songs = [
       artist: "Plant E Ex-90 G -Drop Cable",
       audio: {
         ina: "/tourplan/Audio/IDN/E2_Plant_E_Area_Drop_Cable.mp3",
-        eng: "/tourplan/Audio/ENG/E2_Plant_E.mp3",
+        eng: "/tourplan/Audio/ENG/E2_Ex-90_G-Drop_Cable.mp3",
         chn: "/tourplan/Audio/CHN/E2_Plant_E.mp3",
       },
     },
@@ -193,7 +193,7 @@ export const songs = [
       artist: "Dekat pintu GOR",
       audio: {
         ina: "/tourplan/Audio/IDN/J4_Dekat_pintu_GOR.mp3",
-        eng: "/tourplan/Audio/ENG/J5_Front_Lobby.mp3",
+        eng: "/tourplan/Audio/ENG/J4_Near_door_GOR.mp3",
         chn: "/tourplan/Audio/CHN/J5_Depan_Lobby.mp3",
       },
     },
