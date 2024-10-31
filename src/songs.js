@@ -6,8 +6,7 @@ export const songs = [
         ina: "/tourplan/Audio/IDN/J1_Lobby_Depan.mp3",
         eng: "/tourplan/Audio/ENG/J1_Front_Lobby.mp3",
         chn: "/tourplan/Audio/CHN/J1_Depan_Lobby.mp3",
-      },
-      playing: false,
+      }
     },
     {
       title: "J2",
@@ -16,8 +15,7 @@ export const songs = [
         ina: "/tourplan/Audio/IDN/J2_Depan_PO-Supir.mp3",
         eng: "/tourplan/Audio/ENG/J2_Front_of_Driver's_Post.mp3",
         chn: "/tourplan/Audio/CHN/J2_Depan_Pos_Sopir.mp3",
-      },
-      playing: false,
+      }
     },
     // {
     //   title: "J3",
@@ -35,8 +33,7 @@ export const songs = [
         ina: "/tourplan/Audio/IDN/A1_Masuk_Pabrik.mp3",
         eng: "/tourplan/Audio/ENG/A1_Enter_the_Factory.mp3",
         chn: "/tourplan/Audio/CHN/A1_Enter_the_Factory.mp3",
-      },
-      playing: false,
+      }
     },
     {
       title: "A2",
@@ -45,8 +42,7 @@ export const songs = [
         ina: "/tourplan/Audio/IDN/A2_Ex_70A.mp3",
         eng: "/tourplan/Audio/ENG/A2_Ex-70A.mp3",
         chn: "/tourplan/Audio/CHN/A2_Ex-70A.mp3",
-      },
-      playing: false,
+      }
     },
     {
       title: "A3",
@@ -55,8 +51,7 @@ export const songs = [
         ina: "/tourplan/Audio/IDN/A3_Multi_Drawing.mp3",
         eng: "/tourplan/Audio/ENG/A3_Multi_Drawing.mp3",
         chn: "/tourplan/Audio/CHN/A3_Multi_Drawing.mp3",
-      },
-      playing: false,
+      }
     },
     {
       title: "B1",
@@ -66,7 +61,6 @@ export const songs = [
         eng: "/tourplan/Audio/ENG/B1_Ex-100B.mp3",
         chn: "/tourplan/Audio/CHN/B1_Ex-100B.mp3",
       },
-      playing: false,
     },
     {
       title: "A4",
@@ -109,7 +103,7 @@ export const songs = [
       artist: "Tining Sambil balik arah",
       audio: {
         ina: "/tourplan/Audio/IDN/C3_Tining_balik_arah.mp3",
-        eng: "/tourplan/Audio/ENG/C3_Cb-20A.mp3",
+        eng: "/tourplan/Audio/ENG/C3_Tining.mp3",
         chn: "/tourplan/Audio/CHN/C3_Cb-20A.mp3",
       },
     },
@@ -118,7 +112,7 @@ export const songs = [
       artist: "Cb-20A",
       audio: {
         ina: "/tourplan/Audio/IDN/C4_Cb-20A.mp3",
-        eng: "/tourplan/Audio/ENG/C4_Tining.mp3",
+        eng: "/tourplan/Audio/ENG/C4_Cb-20A.mp3",
         chn: "/tourplan/Audio/CHN/C4_Tining.mp3",
       },
     },

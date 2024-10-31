@@ -11,7 +11,7 @@ import Player from './components/Player.vue'
 </template>
 
 <style scoped>
-.logo {
+/* .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
@@ -22,5 +22,5 @@ import Player from './components/Player.vue'
 }
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
-}
+} */
 </style>

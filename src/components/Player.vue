@@ -1,123 +1,3 @@
-<!-- <script setup>
-import { ref, computed } from 'vue';
-import { songs } from '../songs'; // Import your data source
-
-// Reactive references
-const selectedLanguage = ref('ina');
-const currentAudio = ref(null);
-const isPlaying = ref(false);
-const playingSongIndex = ref(null);
-
-// Pagination state
-const currentPage = ref(1);
-const cardsPerPage = 4; // Fixed value
-
-// Computed properties
-const paginatedSongs = computed(() => {
-  const start = (currentPage.value - 1) * cardsPerPage;
-  return songs.slice(start, start + cardsPerPage);
-});
-
-const totalPages = computed(() => Math.ceil(songs.length / cardsPerPage));
-
-const currentSongDuration = computed(() => {
-  return currentAudio.value ? currentAudio.value.duration : 0;
-});
-
-// Helper functions
-const getAudioSrc = (song) => song.audio[selectedLanguage.value];
-
-const playAudio = (song, index) => {
-  if (currentAudio.value) {
-    currentAudio.value.pause();
-  }
-
-  paginatedSongs.value.forEach((s, i) => {
-    s.playing = (i === index);
-  });
-
-  if (playingSongIndex.value === index) {
-    pauseAudio();
-    return;
-  }
-
-  playingSongIndex.value = index;
-  currentAudio.value = new Audio(getAudioSrc(song));
-  currentAudio.value.play();
-  isPlaying.value = true;
-
-  currentAudio.value.addEventListener('ended', pauseAudio);
-};
-
-const pauseAudio = () => {
-  if (currentAudio.value) {
-    currentAudio.value.pause();
-    isPlaying.value = false;
-    paginatedSongs.value.forEach(song => song.playing = false);
-    currentAudio.value = null;
-    playingSongIndex.value = null;
-  }
-};
-
-const changePage = (direction) => {
-  currentPage.value += direction;
-};
-
-const nextPage = () => {
-  if (currentPage.value < totalPages.value) changePage(1);
-};
-
-const prevPage = () => {
-  if (currentPage.value > 1) changePage(-1);
-};
-
-const loadAndPlayAudio = (song, index) => {
-  if (currentAudio.value && playingSongIndex.value === index) {
-    pauseAudio();
-  } else {
-    playAudio(song, index);
-  }
-};
-</script>
-
-<template>
-  <div class="navbar bg-base-100">
-    <div class="flex-1">
-      <a class="btn btn-ghost text-xl">Virtual Plan</a>
-      <select v-model="selectedLanguage" class="select select-bordered w-full max-w-xs">
-        <option value="ina">Indonesia</option>
-        <option value="eng">English</option>
-        <option value="chn">Mandarin</option>
-      </select>
-    </div>
-  </div>
-
-  <div class="grid grid-cols-2">
-    <div v-for="(song, index) in paginatedSongs" :key="song.title" class="items-center text-center">
-      <div class="hero bg-base-200 mb-4">
-        <div class="hero-content flex-col lg:flex-row">
-          <div>
-            <div class="flex justify-center">
-              <p class="text-xl">{{ index + 1 }}</p>
-              <h1 class="text-5xl font-bold">{{ song.title }}</h1>
-            </div>
-            <p class="py-6">{{ song.artist }}</p>
-            <button class="w-24 h-24 rounded-full bg-blue-500 focus:outline-none" @click="loadAndPlayAudio(song, index)">
-              <font-awesome-icon :icon="isPlaying && playingSongIndex === index ? 'pause' : 'play'" />
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="flex justify-between items-center mt-4 sticky-footer">
-    <button class="btn btn-outline" @click="prevPage" :disabled="currentPage === 1">Prev</button>
-
-    <button class="btn btn-outline" @click="nextPage" :disabled="currentPage === totalPages">Next</button>
-  </div>
-</template> -->
-
 <template>
   <div class="navbar bg-base-100">
     <div class="flex-1">
@@ -125,6 +5,7 @@ const loadAndPlayAudio = (song, index) => {
       <select
         v-model="selectedLanguage"
         class="select select-bordered w-full max-w-xs"
+        @change="handleLanguageChange"
       >
         <option value="ina">Indonesia</option>
         <option value="eng">English</option>
@@ -177,6 +58,17 @@ const loadAndPlayAudio = (song, index) => {
       Next
     </button>
   </div>
+
+  <div v-if="isLoading" class="loading-overlay">
+    <div class="loading loading-dots loading-lg">
+      <!-- <img
+      class="img"
+      src="../assets/loading/loading.gif"
+      alt="loading..."
+      width="250"
+    /> -->
+    </div>
+  </div>
 </template>
 
 <script setup>
@@ -190,6 +82,7 @@ const currentSongTitle = ref("");
 const isPlaying = ref(false); // Add a new ref to track the playback state
 const currentPage = ref(1); // Add a new ref to track the current page
 const pageSize = ref(6); // Set the page size to 4
+const isLoading = ref(false); // New loading state
 
 const paginatedSongs = computed(() => {
   const startIndex = (currentPage.value - 1) * pageSize.value;
@@ -240,6 +133,14 @@ const nextPage = () => {
     currentPage.value++;
   }
 };
+
+const handleLanguageChange = () => {
+  pauseAudio();
+  isLoading.value = true; // Set loading state to true
+  setTimeout(() => {
+    isLoading.value = false; // Simulate loading time
+  }, 2000); // Adjust the duration as needed
+};
 </script>
 
 <style scoped>
@@ -265,5 +166,36 @@ const nextPage = () => {
 .hero {
   transition: background-color 0.5s; /* color transition */
   margin-bottom: 5px; /* Add space between cards */
+}
+
+/* Loading overlay styles */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's above all other content */
+  animation: fadeIn-Out 2s ease-in-out;
+  opacity: 0;
+}
+
+/* .loading-spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+} */
+
+@keyframes fadeIn-Out {
+  from { opacity: 0; }
+  50% { opacity: 1; }
+  to { opacity: 0; }
 }
 </style>
